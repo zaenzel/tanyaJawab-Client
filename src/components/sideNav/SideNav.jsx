@@ -1,13 +1,16 @@
 import Image from "next/image";
 import category from "@/utils/category";
 import Button from "../button/Button";
+import Link from "next/link";
 
 const SideNav = () => {
   return (
     <aside className="hidden basis-1/3 lg:flex justify-center bg-primary">
       <div className="fixed w-80 xl:w-96 flex flex-col py-5 px-5 justify-between h-screen">
         <div className="flex justify-center">
-          <Image src={"/images/logo.png"} width={360} height={116} />
+          <Link href={"/"}>
+            <Image src={"/images/logo.png"} width={360} height={116} />
+          </Link>
         </div>
 
         <div className="flex flex-col gap-6 text-white">
