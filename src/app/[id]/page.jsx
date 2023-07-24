@@ -18,7 +18,7 @@ export default function Home() {
             customClass={"bg-primary text-white btn-fly lg:hidden"}
           />
 
-          <div className="flex flex-col gap-y-14 px-5 min-h-screen">
+          <div className="flex flex-col gap-y-14 px-5 lg:px-20 min-h-screen">
             <div className="flex flex-col gap-2">
               <h1 className="text-5xl font-semibold">Hukum Judi Online</h1>
               <p>Lain - lain, 14 April 2009</p>
