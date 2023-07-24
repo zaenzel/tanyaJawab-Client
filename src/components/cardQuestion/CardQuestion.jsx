@@ -9,7 +9,7 @@ const CardQuestion = () => {
       <div className="max-w-3xl px-5 flex flex-col gap-5">
         {data.map((e, i) => {
           return (
-            <Link href={"/about"}>
+            <Link href={"/1"}>
               <div className="flex flex-col gap-5 " key={i}>
                 <div className="flex justify-between">
                   <div className="flex flex-col gap-2">
