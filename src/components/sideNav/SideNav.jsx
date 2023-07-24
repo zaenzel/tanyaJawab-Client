@@ -34,7 +34,9 @@ const SideNav = () => {
             text="Kirim pertanyaan"
             customClass={"bg-white text-primary"}
           />
-          <Button text="Login" customClass={"bg-white text-primary"} />
+          <Link href={"/login"}>
+            <Button text="Login" customClass={"bg-white text-primary"} />
+          </Link>
         </div>
       </div>
     </aside>
