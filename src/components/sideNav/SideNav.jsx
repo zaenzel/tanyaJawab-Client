@@ -4,6 +4,8 @@ import Button from "../button/Button";
 import Link from "next/link";
 
 const SideNav = () => {
+  const profile = true;
+
   return (
     <aside className="hidden basis-1/3 lg:flex justify-center bg-primary">
       <div className="fixed w-80 xl:w-96 flex flex-col py-5 px-5 justify-between h-screen">
@@ -37,13 +39,24 @@ const SideNav = () => {
               fullWidth={true}
             />
           </Link>
-          <Link href={"/login"}>
-            <Button
-              text={"Login"}
-              customClass={"bg-white text-primary"}
-              fullWidth={true}
-            />
-          </Link>
+          <div className="flex gap-5">
+            {profile && (
+              <Link className="w-full" href={"/profile"}>
+                <Button
+                  text={"Profile"}
+                  customClass={"bg-white text-primary"}
+                  fullWidth={true}
+                />
+              </Link>
+            )}
+            <Link className="w-full" href={"/login"}>
+              <Button
+                text={"Login"}
+                customClass={"bg-white text-primary"}
+                fullWidth={true}
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </aside>
