@@ -28,7 +28,7 @@ const FormAsk = () => {
           </select>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3x">
           <label htmlFor="">Pertanyaan</label>
           <textarea
             type="textarea"

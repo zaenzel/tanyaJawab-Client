@@ -3,7 +3,7 @@ import React from "react";
 
 const data = [1, 2, 3, 4, 5];
 
-const CardQuestion = () => {
+const CardQuestion = ({ auth = false }) => {
   return (
     <section className="flex justify-center py-5">
       <div className="max-w-3xl px-5 flex flex-col gap-5">
@@ -18,7 +18,15 @@ const CardQuestion = () => {
                       Lain - lain, 14 april 2009
                     </p>
                   </div>
-                  <p className="text-sm font-light text-primary">terjawab</p>
+                  <div className="flex gap-3">
+                    {auth && (
+                      <>
+                        <p className="text-sm font-light text-red-600">Hapus</p>
+                        <p className="text-[#D9D9D9]">|</p>
+                      </>
+                    )}
+                    <p className="text-sm font-light text-primary">terjawab</p>
+                  </div>
                 </div>
                 <p className="max-h-24 overflow-hidden">
                   Assalamu'alaikum warahmatullahi wabarakatuh ustadz, Ijin
