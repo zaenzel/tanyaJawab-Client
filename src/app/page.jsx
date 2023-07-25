@@ -5,6 +5,7 @@ import Carousel from "@/components/carousel/Carousel";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import SideNav from "@/components/sideNav/SideNav";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -18,10 +19,12 @@ export default function Home() {
 
           {/* desktop view hidden */}
           <ButtonCategory />
-          <Button
-            text="Mulai bertanya"
-            customClass={"bg-primary text-white btn-fly lg:hidden"}
-          />
+          <Link href={"/ask"}>
+            <Button
+              text="Mulai bertanya"
+              customClass={"bg-primary text-white btn-fly lg:hidden"}
+            />
+          </Link>
 
           <CardQuestion />
           <Footer />

@@ -17,7 +17,7 @@ const page = () => {
               key={i}
               type={e.type}
               placeholder={e.placeholder}
-              className="w-full max-w-sm p-5 rounded-lg border-2 focus:outline-primary"
+              className="w-full max-w-sm px-5 py-2 sm:p-5 rounded-lg border-2 focus:outline-primary"
             />
           );
         })}
@@ -26,6 +26,7 @@ const page = () => {
           customClass={
             "bg-primary btn-lg text-white hover:bg-primary hover:opacity-80"
           }
+          fullWidth={true}
         />
         <Link href={"signup"}>
           <p className="hover:text-blue-500">Belum punya akun?</p>
