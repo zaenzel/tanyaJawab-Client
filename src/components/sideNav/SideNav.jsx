@@ -30,12 +30,19 @@ const SideNav = () => {
         </div>
 
         <div className="flex flex-col gap-5">
-          <Button
-            text="Kirim pertanyaan"
-            customClass={"bg-white text-primary"}
-          />
+          <Link href={"/ask"}>
+            <Button
+              text={"Kirim pertanyaan"}
+              customClass={"bg-white text-primary"}
+              fullWidth={true}
+            />
+          </Link>
           <Link href={"/login"}>
-            <Button text="Login" customClass={"bg-white text-primary"} />
+            <Button
+              text={"Login"}
+              customClass={"bg-white text-primary"}
+              fullWidth={true}
+            />
           </Link>
         </div>
       </div>

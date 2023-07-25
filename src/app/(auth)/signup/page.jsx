@@ -29,6 +29,7 @@ const page = () => {
           customClass={
             "bg-primary btn-lg text-white hover:bg-primary hover:opacity-80"
           }
+          fullWidth={true}
         />
         <Link href={"login"}>
           <p className="hover:text-blue-500">Sudah punya akun?</p>

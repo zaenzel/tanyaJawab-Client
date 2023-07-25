@@ -1,7 +1,14 @@
-import "./button.css"
+import "./button.css";
 
-const Button = ({ customClass, text = "button" }) => {
-  return <button type="button" className={`btn ${customClass} btn-block`}>{text}</button>;
+const Button = ({ customClass, text = "button", fullWidth }) => {
+  return (
+    <button
+      type="button"
+      className={`btn ${customClass} ${fullWidth && "btn-block"}`}
+    >
+      {text}
+    </button>
+  );
 };
 
 export default Button;
