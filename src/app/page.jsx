@@ -5,9 +5,12 @@ import Carousel from "@/components/carousel/Carousel";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import SideNav from "@/components/sideNav/SideNav";
+import getPosts from "@/utils/api/getPosts";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home({ searchParams }) {
+  const posts = await getPosts(searchParams.category_id);
+
   return (
     <>
       <Navbar />
@@ -25,8 +28,7 @@ export default function Home() {
               customClass={"bg-primary text-white btn-fly lg:hidden"}
             />
           </Link>
-
-          <CardQuestion />
+          <CardQuestion posts={posts} />
           <Footer />
         </div>
       </div>

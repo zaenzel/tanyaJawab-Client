@@ -1,47 +1,54 @@
+import date from "@/utils/date";
 import Link from "next/link";
 import React from "react";
 
-const data = [1, 2, 3, 4, 5];
-
-const CardQuestion = ({ auth = false }) => {
+const CardQuestion = ({ auth = false, posts }) => {
   return (
-    <section className="flex justify-center py-5">
-      <div className="max-w-3xl px-5 flex flex-col gap-5">
-        {data.map((e, i) => {
-          return (
-            <Link href={"/1"}>
-              <div className="flex flex-col gap-5 " key={i}>
-                <div className="flex justify-between">
-                  <div className="flex flex-col gap-2">
-                    <h1 className="text-2xl leading-5">Hukum Judi Online</h1>
-                    <p className="font-extralight">
-                      Lain - lain, 14 april 2009
-                    </p>
+    <section className="flex justify-center py-5 min-h-[calc(100vh_-_27rem)]">
+      <div className="max-w-3xl px-5 flex flex-col gap-5 w-full">
+        {posts?.status === "success" ? (
+          posts.data?.length !== 0 ? (
+            posts.data.map((e, i) => {
+              return (
+                <Link href={`${e.id}`} key={i}>
+                  <div className="flex flex-col gap-5 ">
+                    <div className="flex justify-between">
+                      <div className="flex flex-col gap-2">
+                        <h1 className="text-2xl leading-5">{e.title}</h1>
+                        <p className="font-extralight">
+                          Lain - lain, {date(e.created_at)}
+                        </p>
+                      </div>
+                      <div className="flex gap-3">
+                        {auth && (
+                          <>
+                            <p className="text-sm font-light text-red-600">
+                              Hapus
+                            </p>
+                            <p className="text-[#D9D9D9]">|</p>
+                          </>
+                        )}
+                        {e.id_answer && (
+                          <p className="text-sm font-light text-primary">
+                            terjawab
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <p className="max-h-24 overflow-hidden">{e.question}</p>
+                    {i !== posts.data.length - 1 && <hr />}
                   </div>
-                  <div className="flex gap-3">
-                    {auth && (
-                      <>
-                        <p className="text-sm font-light text-red-600">Hapus</p>
-                        <p className="text-[#D9D9D9]">|</p>
-                      </>
-                    )}
-                    <p className="text-sm font-light text-primary">terjawab</p>
-                  </div>
-                </div>
-                <p className="max-h-24 overflow-hidden">
-                  Assalamu'alaikum warahmatullahi wabarakatuh ustadz, Ijin
-                  bertanya belakangan ini suami saya suka main game, saya
-                  awalnya berpikir hanya game biasa tapi setiap selesai main
-                  game dia kesenangan gitu sampai selalu memberi makanan, tapi
-                  kadang juga kesel ga karuan, ternyata game yang dia mainkan
-                  itu judi online, bagaiman ya hukumnya dan apa yang saya harus
-                  lakukan?
-                </p>
-                {i !== data.length - 1 && <hr />}
-              </div>
-            </Link>
-          );
-        })}
+                </Link>
+              );
+            })
+          ) : (
+            <p>data kosong</p>
+          )
+        ) : (
+          <p className="min-h-screen">
+            Oops something went wrong
+          </p>
+        )}
       </div>
     </section>
   );

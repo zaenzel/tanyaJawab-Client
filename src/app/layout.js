@@ -1,3 +1,4 @@
+import AuthProvider from "@/components/authProvider/AuthProvider";
 import "./globals.css";
 import { Inter, M_PLUS_1 } from "next/font/google";
 
@@ -11,7 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={m_plus_1.className}>{children}</body>
+      <body className={m_plus_1.className}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

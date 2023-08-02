@@ -1,31 +1,90 @@
+"use client";
 import Button from "@/components/button/Button";
+import Modal from "@/components/modal/Modal";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { BiShowAlt, BiHide } from "react-icons/bi";
+import { useRouter } from "next/navigation";
+import { userRegister } from "@/utils/api/userAuth";
+import { signUpTextField } from "@/utils/textField";
+import { handleChange } from "@/utils/handleChange";
 
 const page = () => {
-  const textField = [
-    { id: 1, type: "text", placeholder: "nama" },
-    { id: 2, type: "text", placeholder: "kota" },
-    { id: 3, type: "email", placeholder: "email" },
-    { id: 4, type: "password", placeholder: "password" },
-  ];
+  const router = useRouter();
+  const [passType, passTypeSet] = useState("password");
+  const [showModal, showModalSet] = useState(false);
+  const [error, errorSet] = useState([]);
+
+  const textField = signUpTextField(passType);
+
+  const togglePasswordShown = () => {
+    if (passType === "password") {
+      passTypeSet("text");
+      return;
+    }
+    passTypeSet("password");
+  };
+
+  const [user, userSet] = useState({
+    name: "",
+    city: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await userRegister(user);
+      showModalSet(true);
+      router.push("/login");
+      return res.data;
+    } catch (error) {
+      errorSet(error.response.data.message);
+    }
+  };
 
   return (
-    <div className="flex flex-col gap-10 items-center w-full max-w-sm px-5">
+    <div className="flex flex-col gap-10 items-center w-full max-w-sm px-5 py-10">
+      {showModal && <Modal text={"sign up berhasil"} />}
       <h1 className="text-6xl font-bold text-primary">Signup</h1>
-      <form action="" className="flex flex-col gap-5 items-center w-full">
+      <form
+        action=""
+        className="flex flex-col gap-5 items-center w-full"
+        onSubmit={handleSubmit}
+      >
         {textField.map((e, i) => {
           return (
-            <input
-              key={i}
-              type={e.type}
-              placeholder={e.placeholder}
-              className="w-full max-w-sm p-5 rounded-lg border-2 focus:outline-primary"
-            />
+            <div className="relative w-full" key={i}>
+              <input
+                id={e.id}
+                type={e.type}
+                placeholder={e.placeholder}
+                name={e.name}
+                className="w-full max-w-sm p-5 rounded-lg border-2 focus:outline-primary"
+                onChange={(e) => handleChange(e, userSet)}
+              />
+              {e.name === "password" && (
+                <div
+                  onClick={togglePasswordShown}
+                  className={`absolute right-0 ${
+                    error.length !== 0 ? "top-1/4" : "top-1/2"
+                  } -translate-y-full mt-3 mr-4 cursor-pointer`}
+                >
+                  {passType === "password" && <BiHide />}
+                  {passType === "text" && <BiShowAlt />}
+                </div>
+              )}
+
+              {error.length !== 0 && error[i]?.message && (
+                <label htmlFor={e.id}>{error[i].message}</label>
+              )}
+            </div>
           );
         })}
         <Button
-          text="Login"
+          text="Signup"
+          type="submit"
           customClass={
             "bg-primary btn-lg text-white hover:bg-primary hover:opacity-80"
           }

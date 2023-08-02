@@ -3,7 +3,7 @@ import React from "react";
 
 const layout = ({ children }) => {
   return (
-    <div className="flex h-screen w-full">
+    <div className="flex min-h-screen w-full">
       <div className="relative hidden sm:block basis-1/2 lg:basis-2/3">
         <Image
           fill={true}
