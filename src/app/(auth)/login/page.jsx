@@ -26,7 +26,7 @@ const Login = () => {
   const session = useSession();
   const router = useRouter();
 
-  const textField = loginTextField(usePassType);
+  const textField = loginTextField(passType);
 
   const [useUser, useUserSet] = useState({
     email: "",
@@ -76,8 +76,8 @@ const Login = () => {
                   onClick={useTogglePasswordShown}
                   className="absolute right-0 top-1/2 -translate-y-full mt-3 mr-4 cursor-pointer"
                 >
-                  {usePassType === "password" && <BiHide />}
-                  {usePassType === "text" && <BiShowAlt />}
+                  {passType === "password" && <BiHide />}
+                  {passType === "text" && <BiShowAlt />}
                 </div>
               )}
             </div>
