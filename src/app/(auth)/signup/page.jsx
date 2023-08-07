@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { userRegister } from "@/utils/api/userAuth";
 import { signUpTextField } from "@/utils/textField";
 import { handleChange } from "@/utils/handleChange";
+import ErrorText from "@/components/errorText/ErrorText";
 
 const page = () => {
   const router = useRouter();
@@ -77,7 +78,7 @@ const page = () => {
               )}
 
               {error.length !== 0 && error[i]?.message && (
-                <label htmlFor={e.id}>{error[i].message}</label>
+                <ErrorText text={error[i].message} />
               )}
             </div>
           );

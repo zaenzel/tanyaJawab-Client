@@ -1,12 +1,14 @@
 "use client";
 import Button from "@/components/button/Button";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiShowAlt, BiHide } from "react-icons/bi";
 import { loginTextField } from "@/utils/textField";
 import { userLogin } from "@/utils/api/userAuth";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import category from "@/utils/category";
 
 const page = () => {
   const [passType, passTypeSet] = useState("password");
@@ -47,8 +49,8 @@ const page = () => {
     //   errorSet(error.response.data.message);
     // }
 
-    signIn("credentials", {user})
-  };
+    signIn("credentials", { user });
+  }
 
   return (
     <div className="flex flex-col gap-10 items-center w-full max-w-sm px-5">

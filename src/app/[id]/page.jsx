@@ -26,21 +26,24 @@ export default async function Home({ params }) {
 
           <div className="flex flex-col gap-y-14 p-5 items-center max-w-lg lg:max-w-max lg:items-start lg:p-20 min-h-screen">
             <div className="flex flex-col w-full gap-4">
-              <h1 className="text-3xl lg:text-5xl font-semibold">{post.data.title}</h1>
-              <p>Lain - lain, {date(post.data.createdAt)}</p>
+              <h1 className="text-3xl lg:text-5xl font-semibold">
+                {post.title}
+              </h1>
+              <p>
+                {post.category}, {date(post.createdAt)}
+              </p>
             </div>
             <DetailText
-              text={post.data.question}
-              name={post.questioner.name}
-              city={post.questioner.city}
+              text={post.question}
+              name={post.questioner}
+              city={post.city}
             />
 
             {post.answer ? (
               <DetailText
                 question={false}
-                text={post.data.answer}
-                name={post.answer.name}
-                city={post.answer.city}
+                text={post.answer}
+                name={post.nameAnswer}
               />
             ) : (
               <p>Maaf, pertanyaan ini belum dijawab oleh para asaatidz</p>

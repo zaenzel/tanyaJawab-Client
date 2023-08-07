@@ -1,19 +1,19 @@
 import axios from "axios";
 
-export default async function getPosts(id) {
-  const api_url = process.env.API_BASE_URL;
+export default async function getPosts(category) {
+  const api_url = process.env.NEXT_PUBLIC_API_BASE_MOCK;
   try {
-    if (id) {
-      const res = await axios.get(`${api_url}/posts?category_id=${id}`, {
+    if (category) {
+      const res = await axios.get(`${api_url}?category=${category}`, {
         cache: "no-store",
       });
-      return res.data;
+      return res;
     }
 
-    const res = await axios.get(`${api_url}/posts`, {
+    const res = await axios.get(`${api_url}`, {
       cache: "no-store",
     });
-    return res.data;
+    return res;
   } catch (error) {
     return error;
   }

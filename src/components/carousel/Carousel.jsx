@@ -3,9 +3,9 @@ import React from "react";
 
 const Carousel = () => {
   const images = [
-    { id: "slide1", img: "/images/4.jpg", next: "#slide2", prev: "#slide3" },
-    { id: "slide2", img: "/images/2.jpg", next: "#slide3", prev: "#slide1" },
-    { id: "slide3", img: "/images/3.jpg", next: "#slide1", prev: "#slide2" },
+    { id: "slide1", img: "/images/2.jpg", next: "#slide2", prev: "#slide3" },
+    { id: "slide2", img: "/images/3.jpg", next: "#slide3", prev: "#slide1" },
+    { id: "slide3", img: "/images/4.jpg", next: "#slide1", prev: "#slide2" },
   ];
 
   return (

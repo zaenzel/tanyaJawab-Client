@@ -18,4 +18,10 @@ export const loginTextField = (passType) => {
   return field;
 };
 
-
+export const askField = [
+  { id: 1, type: "text", name: "questioner", label: "Nama" },
+  { id: 2, type: "text", name: "city", label: "Asal Kota" },
+  { id: 3, type: "text", name: "title", label: "Judul" },
+  { id: 4, type: "select", name: "category" },
+  { id: 5, type: "textarea", name: "question" },
+];

@@ -1,12 +1,13 @@
 import date from "@/utils/date";
 import Link from "next/link";
 import React from "react";
+import DefaultEmpty from "../defaultEmpty/DefaultEmpty";
 
 const CardQuestion = ({ auth = false, posts }) => {
   return (
     <section className="flex justify-center py-5 min-h-[calc(100vh_-_27rem)]">
       <div className="max-w-3xl px-5 flex flex-col gap-5 w-full">
-        {posts?.status === "success" ? (
+        {posts?.status === 200 ? (
           posts.data?.length !== 0 ? (
             posts.data.map((e, i) => {
               return (
@@ -16,7 +17,7 @@ const CardQuestion = ({ auth = false, posts }) => {
                       <div className="flex flex-col gap-2">
                         <h1 className="text-2xl leading-5">{e.title}</h1>
                         <p className="font-extralight">
-                          Lain - lain, {date(e.created_at)}
+                          {e.category} , {date(e.createdAt)}
                         </p>
                       </div>
                       <div className="flex gap-3">
@@ -42,12 +43,10 @@ const CardQuestion = ({ auth = false, posts }) => {
               );
             })
           ) : (
-            <p>data kosong</p>
+            <DefaultEmpty text={"Maaf, belum ada pertanyaan di kategori ini"} />
           )
         ) : (
-          <p className="min-h-screen">
-            Oops something went wrong
-          </p>
+          <DefaultEmpty text={"Maaf, server sedang bermasalah"} />
         )}
       </div>
     </section>

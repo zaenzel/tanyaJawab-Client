@@ -10,8 +10,8 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex-none">
-        <Link href={"/login"}>
-          <Button customClass="btn-outline text-white" text="Login" />
+        <Link href={"/ask"}>
+          <Button customClass="btn-outline text-white" text="Mulai Bertanya" />
         </Link>
       </div>
     </div>

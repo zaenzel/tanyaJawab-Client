@@ -15,3 +15,4 @@ export default [
   "Pernikahan & Keluarga",
   "Lain-lain",
 ];
+
