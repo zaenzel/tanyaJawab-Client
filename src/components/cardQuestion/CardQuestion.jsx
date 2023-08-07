@@ -1,4 +1,4 @@
-import { date } from "../../utils/helper";
+import { date } from "@/utils/helper";
 import Link from "next/link";
 import React from "react";
 import DefaultEmpty from "../defaultEmpty/DefaultEmpty";

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Button from "../button/Button";
 import Link from "next/link";
 import DefaultEmpty from "../defaultEmpty/DefaultEmpty";
-import { category } from "../../utils/helper";
+import { category } from "@/utils/helper";
 
 const SideNav = async () => {
   const profile = false;

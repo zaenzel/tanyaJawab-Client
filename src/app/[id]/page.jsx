@@ -3,7 +3,7 @@ import DetailText from "@/components/detailText.jsx/DetailText.jsx";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import SideNav from "@/components/sideNav/SideNav";
-import { date } from "../../utils/helper";
+import { date } from "@/utils/helper";
 import getPostDetail from "@/utils/api/getPostDetail";
 
 export default async function Home({ params }) {

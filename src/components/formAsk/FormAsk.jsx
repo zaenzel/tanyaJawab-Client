@@ -5,7 +5,7 @@ import addPost from "@/utils/api/addPost";
 import { useRouter } from "next/navigation";
 import Modal from "../modal/Modal";
 import ErrorText from "../errorText/ErrorText";
-import {askField, handleChange, category} from "../../utils/helper"
+import {askField, handleChange, category} from "@/utils/helper"
 
 const FormAsk = () => {
   const router = useRouter();

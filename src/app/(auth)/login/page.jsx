@@ -7,7 +7,7 @@ import { userLogin } from "@/utils/api/userAuth";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { loginTextField } from "../../utils/helper";
+import { loginTextField } from "@/utils/helper";
 
 const Login = () => {
   const [passType, passTypeSet] = useState("password");
