@@ -11,42 +11,42 @@ import axios from "axios";
 import category from "@/utils/category";
 
 const page = () => {
-  const [passType, passTypeSet] = useState("password");
-  const [data, dataSet] = useState({});
-  const [showModal, showModalSet] = useState(false);
-  const [error, errorSet] = useState([]);
+  const [usePassType, usePassTypeSet] = useState("password");
+  const [useData, useDataSet] = useState({});
+  const [useShowModal, useShowModalSet] = useState(false);
+  const [useError, useErrorSet] = useState([]);
   const session = useSession();
   const router = useRouter();
 
   const togglePasswordShown = () => {
-    if (passType === "password") {
-      passTypeSet("text");
+    if (usePassType === "password") {
+      usePassTypeSet("text");
       return;
     }
-    passTypeSet("password");
+    usePassTypeSet("password");
   };
 
-  const textField = loginTextField(passType);
+  const textField = loginTextField(usePassType);
 
-  const [user, userSet] = useState({
+  const [useUser, useUserSet] = useState({
     email: "",
     password: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    userSet((prev) => ({ ...prev, [name]: value }));
+    useUserSet((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // try {
     //   const res = await userLogin(user);
-    //   showModalSet(true);
-    //   dataSet(res);
-    //   return res.data;
+    //   useShowModalSet(true);
+    //   useDataSet(res);
+    //   return res.useData;
     // } catch (error) {
-    //   errorSet(error.response.data.message);
+    //   errorSet(error.response.useData.message);
     // }
 
     signIn("credentials", { user });
@@ -76,8 +76,8 @@ const page = () => {
                   onClick={togglePasswordShown}
                   className="absolute right-0 top-1/2 -translate-y-full mt-3 mr-4 cursor-pointer"
                 >
-                  {passType === "password" && <BiHide />}
-                  {passType === "text" && <BiShowAlt />}
+                  {usePassType === "password" && <BiHide />}
+                  {usePassType === "text" && <BiShowAlt />}
                 </div>
               )}
             </div>

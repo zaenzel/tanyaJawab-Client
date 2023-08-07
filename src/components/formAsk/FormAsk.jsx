@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import Modal from "../modal/Modal";
 import ErrorText from "../errorText/ErrorText";
 import { askField } from "@/utils/textField";
-import axios from "axios";
 
 const FormAsk = () => {
   const router = useRouter();
