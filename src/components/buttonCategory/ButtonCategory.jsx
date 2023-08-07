@@ -1,7 +1,7 @@
 import getCategory from "@/utils/api/getCategory";
 import "./buttonCategory.css";
 import Link from "next/link";
-import category from "@/utils/category";
+import { category } from "../../utils/helper";
 
 const ButtonCategory = async () => {
   return (

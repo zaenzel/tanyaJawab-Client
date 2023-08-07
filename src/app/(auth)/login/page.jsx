@@ -3,28 +3,28 @@ import Button from "@/components/button/Button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BiShowAlt, BiHide } from "react-icons/bi";
-import { loginTextField } from "@/utils/textField";
 import { userLogin } from "@/utils/api/userAuth";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import category from "@/utils/category";
+import { loginTextField } from "../../utils/helper";
 
-const page = () => {
-  const [usePassType, usePassTypeSet] = useState("password");
+const Login = () => {
+  const [passType, passTypeSet] = useState("password");
+
+  function useTogglePasswordShown() {
+    if (passType === "password") {
+      passTypeSet("text");
+      return;
+    }
+    passTypeSet("password");
+  }
+
   const [useData, useDataSet] = useState({});
   const [useShowModal, useShowModalSet] = useState(false);
   const [useError, useErrorSet] = useState([]);
   const session = useSession();
   const router = useRouter();
-
-  const togglePasswordShown = () => {
-    if (usePassType === "password") {
-      usePassTypeSet("text");
-      return;
-    }
-    usePassTypeSet("password");
-  };
 
   const textField = loginTextField(usePassType);
 
@@ -33,7 +33,7 @@ const page = () => {
     password: "",
   });
 
-  const handleChange = (e) => {
+  const useHandleChange = (e) => {
     const { name, value } = e.target;
     useUserSet((prev) => ({ ...prev, [name]: value }));
   };
@@ -50,7 +50,7 @@ const page = () => {
     // }
 
     signIn("credentials", { user });
-  }
+  };
 
   return (
     <div className="flex flex-col gap-10 items-center w-full max-w-sm px-5">
@@ -68,12 +68,12 @@ const page = () => {
                 type={e.type}
                 name={e.name}
                 placeholder={e.placeholder}
-                onChange={handleChange}
+                onChange={useHandleChange}
                 className="w-full max-w-sm px-5 py-2 sm:p-5 rounded-lg border-2 focus:outline-primary"
               />
               {e.name === "password" && (
                 <div
-                  onClick={togglePasswordShown}
+                  onClick={useTogglePasswordShown}
                   className="absolute right-0 top-1/2 -translate-y-full mt-3 mr-4 cursor-pointer"
                 >
                   {usePassType === "password" && <BiHide />}
@@ -99,4 +99,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Login;

@@ -6,11 +6,10 @@ import React, { useState } from "react";
 import { BiShowAlt, BiHide } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import { userRegister } from "@/utils/api/userAuth";
-import { signUpTextField } from "@/utils/textField";
-import { handleChange } from "@/utils/handleChange";
+import { signUpTextField, handleChange } from "@/utils/helper";
 import ErrorText from "@/components/errorText/ErrorText";
 
-const page = () => {
+const SignUp = () => {
   const router = useRouter();
   const [passType, passTypeSet] = useState("password");
   const [showModal, showModalSet] = useState(false);
@@ -99,4 +98,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SignUp;

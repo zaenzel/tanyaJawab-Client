@@ -1,13 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import category from "@/utils/category";
 import Button from "../button/Button";
-import { handleChange } from "@/utils/handleChange";
 import addPost from "@/utils/api/addPost";
 import { useRouter } from "next/navigation";
 import Modal from "../modal/Modal";
 import ErrorText from "../errorText/ErrorText";
-import { askField } from "@/utils/textField";
+import {askField, handleChange, category} from "../../utils/helper"
 
 const FormAsk = () => {
   const router = useRouter();

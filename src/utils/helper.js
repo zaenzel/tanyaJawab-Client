@@ -1,3 +1,32 @@
+import moment from "moment";
+
+export const category = [
+  "Aqidah",
+  "Al-Qur'an",
+  "Hadist",
+  "Qurban",
+  "Thaharah",
+  "Sholat",
+  "Puasa",
+  "Zakat",
+  "Haji & Umrah",
+  "Makanan & Minuman",
+  "Dzikir & Doa",
+  "Waris",
+  "Fiqih Muamalah",
+  "Pernikahan & Keluarga",
+  "Lain-lain",
+];
+
+export function date(value) {
+  return moment(value).format("LL");
+}
+
+export const handleChange = (e, stateSet) => {
+  const { name, value } = e.target;
+  stateSet((prev) => ({ ...prev, [name]: value }));
+};
+
 export const signUpTextField = (passType) => {
   const field = [
     { id: 1, type: "text", placeholder: "nama", name: "name" },
