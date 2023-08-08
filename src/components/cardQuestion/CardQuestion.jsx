@@ -15,8 +15,8 @@ const CardQuestion = ({ auth = false, posts }) => {
                   <div className="flex flex-col gap-5 ">
                     <div className="flex justify-between">
                       <div className="flex flex-col gap-2">
-                        <h1 className="text-2xl leading-5">{e.title}</h1>
-                        <p className="font-extralight">
+                        <h1 className="text-xl md:text-2xl leading-5">{e.title}</h1>
+                        <p className="font-extralight text-sm md:text-base">
                           {e.category} , {date(e.createdAt)}
                         </p>
                       </div>

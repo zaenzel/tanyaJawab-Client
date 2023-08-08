@@ -12,7 +12,7 @@ const ButtonCategory = async () => {
             category.map((e, i) => {
               return (
                 <button
-                  className="btn btn-outline text-primary active:bg-primary"
+                  className="btn btn-outline btn-sm lg:btn text-primary active:bg-primary"
                   key={i}
                 >
                   <Link href={`?category_id=${e}`}>{e}</Link>

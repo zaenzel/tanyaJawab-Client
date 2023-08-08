@@ -54,7 +54,7 @@ const FormAsk = () => {
               <label htmlFor="">{e.label}</label>
               <input
                 type="text"
-                className="w-full px-5 py-2 sm:py-3 rounded-lg border-2 focus:outline-primary"
+                className="w-full px-5 py-2 sm:py-3 rounded-lg border-2 focus:outline-primary focus:rounded-lg"
                 name={e.name}
                 onChange={(e) => handleChange(e, postSet)}
               />
@@ -66,7 +66,7 @@ const FormAsk = () => {
             <div className="flex flex-col gap-3" key={i}>
               <label htmlFor="">Kategori</label>
               <select
-                className="p-2 w-full bg-white rounded-lg border-2 focus:outline-primary"
+                className="p-2 w-full bg-white rounded-lg border-2 focus:outline-primary focus:rounded-lg"
                 onChange={(e) => handleChange(e, postSet)}
                 name="category"
               >
@@ -85,7 +85,7 @@ const FormAsk = () => {
               <textarea
                 type="textarea"
                 rows="4"
-                className="w-full px-5 py-2 sm:py-3 rounded-lg border-2 focus:outline-primary"
+                className="w-full px-5 py-2 sm:py-3 rounded-lg border-2 focus:outline-primary focus:rounded-lg"
                 name="question"
                 onChange={(e) => handleChange(e, postSet)}
               />
