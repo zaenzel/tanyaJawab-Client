@@ -12,7 +12,7 @@ const Navbar = () => {
       </div>
       <div className="">
         <Link href={"/ask"}>
-          <Button customClass="btn-outline text-white" text="Mulai Bertanya" />
+          <Button customClass="btn-outline text-white btn-sm lg:btn-lg" text="Mulai Bertanya" />
         </Link>
       </div>
     </div>
