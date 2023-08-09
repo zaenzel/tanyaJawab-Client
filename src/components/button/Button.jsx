@@ -4,7 +4,7 @@ const Button = ({ customClass, text = "button", fullWidth, type="button" }) => {
   return (
     <button
       type={type}
-      className={`btn lg:btn-lg btn-sm ${customClass} ${fullWidth && "btn-block"}`}
+      className={`btn lg:btn-lg btn-sm  ${customClass} ${fullWidth && "btn-block"}`}
     >
       {text}
     </button>

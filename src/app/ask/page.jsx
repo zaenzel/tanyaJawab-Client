@@ -4,6 +4,11 @@ import Navbar from "@/components/navbar/Navbar";
 import SideNav from "@/components/sideNav/SideNav";
 import React from "react";
 
+export const metadata = {
+  title: "Tanya Jawab Syariah Form Pertanyaan",
+  description: "Ini adalah halaman mengirimkan pertanyaan",
+};
+
 const page = () => {
   return (
     <>

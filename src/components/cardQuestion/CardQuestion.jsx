@@ -29,7 +29,7 @@ const CardQuestion = ({ auth = false, posts }) => {
                             <p className="text-[#D9D9D9]">|</p>
                           </>
                         )}
-                        {e.id_answer && (
+                        {e.answer && (
                           <p className="text-sm font-light text-primary">
                             terjawab
                           </p>

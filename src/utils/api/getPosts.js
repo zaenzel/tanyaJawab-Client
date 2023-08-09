@@ -5,13 +5,13 @@ export default async function getPosts(category) {
   try {
     if (category) {
       const res = await axios.get(`${api_url}?category=${category}`, {
-        cache: "no-store",
+        cache: "force-cache",
       });
       return res;
     }
 
     const res = await axios.get(`${api_url}`, {
-      cache: "no-store",
+      cache: "force-cache",
     });
     return res;
   } catch (error) {
